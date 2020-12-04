@@ -21,17 +21,7 @@ class Day2 extends React.Component {
 
   render() {
 
-    // console.log(this.state.input);
     let passStrings = this.state.input.replace(/(?:\r\n|\r|\n)/g, '---').split('------');
-    // let passports = passStrings.map(function(e) {
-    //     return e.replace('---', ' ').split(' ').map(function(e2) {
-    //         let props = e2.split(':');
-    //         let obj = {};
-    //         obj[props[0]] = props[1];
-    //         return obj;
-    //     });
-    // });
-    // console.log(passStrings);
     let passports = passStrings.map(function(e) {
         return e.replace(/---/g, ' ').split(' ').reduce((acc, curr, index) => {
             let arr = curr.split(':');
@@ -39,10 +29,14 @@ class Day2 extends React.Component {
             return acc; 
         }, {});
     });
-    let validPassports = 0;
+    let validPart1 = 0;
+    let validPart2 = 0;
     for(let i = 0; i < passports.length; i++) {
-        if(isValidPassport(passports[i])) {
-            validPassports++;
+        if(isValidPassport1(passports[i])) {
+            validPart1++;
+        }
+        if(isValidPassport2(passports[i])) {
+            validPart2++;
         }
     }
     console.log(passports);
@@ -58,15 +52,19 @@ class Day2 extends React.Component {
             <input type="submit" value="Submit" />
           </form>
         </div>
-        <div>result: {validPassports}</div>
-            {/* {output.map(item => { return <div>{item}</div>})} */}
+        <div>Valid part 1: {validPart1}</div>
+        <div>Valid part 2: {validPart2}</div>
       </div>
     );
   }
 }
 
-function isValidPassport(passport) {
-    
+function isValidPassport1(passport) {
+    let requiredProperties = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
+    return requiredProperties.every(function(e) { return e in passport});
+}
+
+function isValidPassport2(passport) {
     let requiredProperties = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
     let hasAll = requiredProperties.every(function(e) { return e in passport});
     if(!hasAll) return false;
