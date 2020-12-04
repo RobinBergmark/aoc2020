@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Day2 extends React.Component {
+class Day4 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {input: ''};
@@ -103,4 +103,4 @@ function logArray(arr) {
     }
 }
 
-export default Day2;
+export default Day4;
