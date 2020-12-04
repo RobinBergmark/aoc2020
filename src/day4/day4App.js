@@ -20,10 +20,8 @@ class Day2 extends React.Component {
 
 
   render() {
-
-    let passStrings = this.state.input.replace(/(?:\r\n|\r|\n)/g, '---').split('------');
-    let passports = passStrings.map(function(e) {
-        return e.replace(/---/g, ' ').split(' ').reduce((acc, curr, index) => {
+    let passports = this.state.input.split('\n\n').map(function(e) {
+        return e.replace(/\n/g, ' ').split(' ').reduce((acc, curr, index) => {
             let arr = curr.split(':');
             acc[arr[0]] = arr[1];
             return acc; 
@@ -32,14 +30,13 @@ class Day2 extends React.Component {
     let validPart1 = 0;
     let validPart2 = 0;
     for(let i = 0; i < passports.length; i++) {
-        if(isValidPassport1(passports[i])) {
+        if(hasRequiredProperties(passports[i])) {
             validPart1++;
         }
         if(isValidPassport2(passports[i])) {
             validPart2++;
         }
     }
-    console.log(passports);
     return (
       <div>
         <h1>Advent of Code 2020 - day 1</h1>
@@ -59,17 +56,15 @@ class Day2 extends React.Component {
   }
 }
 
-function isValidPassport1(passport) {
+function hasRequiredProperties(passport) {
     let requiredProperties = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
     return requiredProperties.every(function(e) { return e in passport});
 }
 
 function isValidPassport2(passport) {
-    let requiredProperties = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
-    let hasAll = requiredProperties.every(function(e) { return e in passport});
-    if(!hasAll) return false;
-
+    if(!hasRequiredProperties(passport)) return false;
     let validations = {
+        cid: function(e) { return true},
         byr: function (e) { return e <= 2002 && e >= 1920},
         iyr: function(e) { return e <= 2020 && e >= 2010},
         eyr: function(e) { return e <= 2030 && e >= 2020}, 
@@ -91,11 +86,7 @@ function isValidPassport2(passport) {
     };
 
     for(let prop in passport) {
-        if(prop === 'cid') continue;
-        // console.log(prop);
-        // console.log(validations[prop]);
         if(validations[prop](passport[prop]) === false) {
-            console.log('Failed validation for property ' + prop + ' with value: ' + passport[prop]);
             return false;
         }
     }
