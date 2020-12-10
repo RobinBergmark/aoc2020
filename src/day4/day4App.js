@@ -93,14 +93,4 @@ function isValidPassport2(passport) {
     return true;
 }
 
-function logArray(arr) {
-    let s = '';
-    for(let i = 0; i < arr.length; i++) {
-        for(let j = 0; j < arr[i].length; j++) {
-            s += arr[i][j];
-        }
-        console.log(s);
-    }
-}
-
 export default Day4;

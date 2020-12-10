@@ -68,16 +68,6 @@ function countTrees(right, down, array, input) {
     }
 }
 
-function logArray(arr) {
-    let s = '';
-    for(let i = 0; i < arr.length; i++) {
-        for(let j = 0; j < arr[i].length; j++) {
-            s += arr[i][j];
-        }
-        console.log(s);
-    }
-}
-
 function extendArray(target, input) {
     let rows = input.split('\n');
     if(!target) {

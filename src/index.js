@@ -2,26 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Day1 from './day1/day1App.js'
-import Day2 from './day2/day2App.js'
-import Day3 from './day3/day3App.js'
+// import Day2 from './day2/day2App.js'
+// import Day3 from './day3/day3App.js'
 import Day4 from './day4/day4App.js'
 import Day5 from './day5/day5App.js'
-import Day6 from './day6/day6App.js'
-import Day7 from './day7/day7App.js'
-import Day8 from './day8/day8App.js'
+// import Day6 from './day6/day6App.js'
+// import Day7 from './day7/day7App.js'
+// import Day8 from './day8/day8App.js'
+// import Day9 from './day9/day9App.js'
+import Day10 from './Day10/day10App.js'
 
-function Aoc(props) {
-  let day = 'Day4';
+// function Aoc(props) {
+//   let day = 'Day4';
 
-  if(day === 'Day4') {
-    return <Day4 />;
-  }
-}
+//   if(day === 'Day4') {
+//     return <Day4 />;
+//   }
+// }
 
 class Advent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {day: <Day8 />};
+    this.state = {day: <Day10 />};
     this.handleDay1Button = this.handleDay1Button.bind(this);
     this.handleDay4Button = this.handleDay4Button.bind(this);
     this.handleDay5Button = this.handleDay5Button.bind(this);
@@ -52,8 +54,6 @@ class Advent extends React.Component {
     )
   }
 }
-
-
 
 ReactDOM.render(
   <Advent />,

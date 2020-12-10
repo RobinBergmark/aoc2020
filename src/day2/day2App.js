@@ -71,19 +71,19 @@ class Day2 extends React.Component {
 
 // ========================================
 
-function findTarget(array, target) {
-  for(let i = 0; i < array.length; i++) {
-    for(let j = 0; j < array.length; j++) {
-      for(let k = 0; k < array.length; k++) {
-        if(i === j && i === k) continue; 
-      // console.log('comparing' + array[i] + ' and ' +array[j]);
-      if(array[i] + array[j] + array[k] === target) {
-        return [array[i], array[j], array[k]];
-      }    
-      }
-    }
-  }
-  return [];
-}
+// function findTarget(array, target) {
+//   for(let i = 0; i < array.length; i++) {
+//     for(let j = 0; j < array.length; j++) {
+//       for(let k = 0; k < array.length; k++) {
+//         if(i === j && i === k) continue; 
+//       // console.log('comparing' + array[i] + ' and ' +array[j]);
+//       if(array[i] + array[j] + array[k] === target) {
+//         return [array[i], array[j], array[k]];
+//       }    
+//       }
+//     }
+//   }
+//   return [];
+// }
 
 export default Day2;
