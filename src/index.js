@@ -10,7 +10,8 @@ import Day5 from './day5/day5App.js'
 // import Day7 from './day7/day7App.js'
 // import Day8 from './day8/day8App.js'
 // import Day9 from './day9/day9App.js'
-import Day10 from './Day10/day10App.js'
+// import Day10 from './Day10/day10App.js'
+import Day11 from './Day11/day11App.js'
 
 // function Aoc(props) {
 //   let day = 'Day4';
@@ -23,7 +24,7 @@ import Day10 from './Day10/day10App.js'
 class Advent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {day: <Day10 />};
+    this.state = {day: <Day11 />};
     this.handleDay1Button = this.handleDay1Button.bind(this);
     this.handleDay4Button = this.handleDay4Button.bind(this);
     this.handleDay5Button = this.handleDay5Button.bind(this);

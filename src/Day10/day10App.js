@@ -87,7 +87,7 @@ function countPaths(adapters) {
                 count = 1;
             }
             groups.push(count);
-            console.log('add count: '+count+' for group: '+s);
+            // console.log('add count: '+count+' for group: '+s);
             groupNums = [];
             s = '';
         } else {
